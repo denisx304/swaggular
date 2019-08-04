@@ -5,4 +5,11 @@
         </mat-panel-title>
         <mat-panel-description>{{tag.description}}</mat-panel-description>
     </mat-expansion-panel-header>
+    <div *ngFor="let path of paths | keyvalue">
+        <div *ngFor="let operation of path.value | keyvalue">
+            <div *ngIf="operation.value.tags.includes(tag.name)">
+                <div>{{operation.key}} {{path.key}} {{operation.value.summary}}</div>
+            </div>
+        </div>
+    </div>
 </mat-expansion-panel>

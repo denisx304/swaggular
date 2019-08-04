@@ -1,3 +1,6 @@
-<mat-accordion *ngIf="document.tags">
-  <app-tag *ngFor="let tag of document.tags" [tag]="tag"></app-tag>
-</mat-accordion>
+<div *ngIf="document && document.tags">
+    <app-tag 
+      *ngFor="let tag of document.tags" 
+      [tag]="tag"
+      [paths]="getPaths(tag.name)"></app-tag>
+</div>

@@ -9,10 +9,13 @@ import { OpenAPIV3 } from 'openapi-types';
 export class TagComponent implements OnInit {
 
   @Input() tag: OpenAPIV3.TagObject;
+  @Input() paths: OpenAPIV3.PathsObject;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.tag);
+    console.log(this.paths);
   }
 
 }
