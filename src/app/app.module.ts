@@ -10,6 +10,7 @@ import { TagComponent } from './tag/tag.component';
 import { InfoComponent } from './info/info.component';
 import { OperationComponent } from './operation/operation.component';
 import { ParametersComponent } from './parameters/parameters.component';
+import { RequestBodyComponent } from './request-body/request-body.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ParametersComponent } from './parameters/parameters.component';
     TagComponent,
     InfoComponent,
     OperationComponent,
-    ParametersComponent
+    ParametersComponent,
+    RequestBodyComponent
   ],
   imports: [
     BrowserModule,
