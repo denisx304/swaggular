@@ -1,3 +1,8 @@
-<div *ngIf="tag">
-    {{tag.name}}
-</div>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <b>{{tag.name}}</b>
+        </mat-panel-title>
+        <mat-panel-description>{{tag.description}}</mat-panel-description>
+    </mat-expansion-panel-header>
+</mat-expansion-panel>

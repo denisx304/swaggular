@@ -1,13 +1,3 @@
-
-<!-- <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-            Personal data
-        </mat-panel-title>
-        <mat-panel-description>
-            Type your name and age
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-    </mat-expansion-panel>
-</mat-accordion> -->
+<mat-accordion *ngIf="document.tags">
+  <app-tag *ngFor="let tag of document.tags" [tag]="tag"></app-tag>
+</mat-accordion>
