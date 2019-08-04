@@ -11,6 +11,7 @@ import { InfoComponent } from './info/info.component';
 import { OperationComponent } from './operation/operation.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { RequestBodyComponent } from './request-body/request-body.component';
+import { SchemaComponent } from './schema/schema.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RequestBodyComponent } from './request-body/request-body.component';
     InfoComponent,
     OperationComponent,
     ParametersComponent,
-    RequestBodyComponent
+    RequestBodyComponent,
+    SchemaComponent
   ],
   imports: [
     BrowserModule,

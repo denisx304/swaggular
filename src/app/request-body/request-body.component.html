@@ -8,7 +8,7 @@
 <div *ngFor="let contentObject of requestBody.content | keyvalue">
     <div *ngIf="contentObject.key === content">
         <div *ngIf="contentObject.value.schema">
-            
+            <app-schema [schema]="contentObject.value.schema" [expanded]="true"></app-schema>
         </div>
     </div>
 </div>

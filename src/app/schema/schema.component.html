@@ -1,0 +1,28 @@
+<mat-expansion-panel [expanded]="expanded">
+    <mat-expansion-panel-header>
+        <div *ngIf="schema.xml && schema.xml.name">{{schema.xml.name}}</div>
+    </mat-expansion-panel-header>
+    <div *ngIf="schema.properties">
+        <div *ngFor="let property of schema.properties | keyvalue">
+            <span>{{property.key}}</span>&nbsp;
+            <span *ngIf="property.value.type === 'object' || property.value.type === 'array'; else primitives">
+                <app-schema *ngIf="property.value.type === 'object'" [schema]="property.value" [expanded]="false"></app-schema>
+                <span *ngIf="property.value.type === 'array'">
+                    <span *ngIf="property.value.items.type === 'object'">
+                        [<app-schema [schema]="property.value.items" [expanded]="false"></app-schema>]
+                    </span>
+                    <span *ngIf="property.value.items.type !== 'object'">
+                        [{{property.value.items.type}}]
+                    </span>
+                </span>
+            </span>
+            <ng-template #primitives>
+                <span *ngIf="property.value.type">{{property.value.type}}</span>
+                <span *ngIf="property.value.format">$({{property.value.format}})</span>
+                <div *ngIf="property.value.description">{{property.value.description}}</div>
+                <div *ngIf="property.value.enum">[{{property.value.enum.join(', ')}}]</div>   
+            </ng-template>
+        </div>
+    </div>
+</mat-expansion-panel>
+<!-- TODO: add required flag -->
