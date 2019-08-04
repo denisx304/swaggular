@@ -9,13 +9,15 @@ import { MaterialModule } from './material/material.module';
 import { TagComponent } from './tag/tag.component';
 import { InfoComponent } from './info/info.component';
 import { OperationComponent } from './operation/operation.component';
+import { ParametersComponent } from './parameters/parameters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TagComponent,
     InfoComponent,
-    OperationComponent
+    OperationComponent,
+    ParametersComponent
   ],
   imports: [
     BrowserModule,

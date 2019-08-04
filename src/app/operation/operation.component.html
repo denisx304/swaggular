@@ -2,4 +2,6 @@
     <mat-expansion-panel-header>
         <div>{{operationName}} {{path}} {{operation.summary}}</div>
     </mat-expansion-panel-header>
+    <div *ngIf="operation.description">{{operation.description}}</div>
+    <app-parameters [parameters]="operation.parameters"></app-parameters>
 </mat-expansion-panel>
