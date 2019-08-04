@@ -11,7 +11,13 @@ import { OpenAPI, OpenAPIV3 } from 'openapi-types';
 export class AppComponent implements OnInit {
   document: OpenAPI.Document;
 
-  getPaths(tag: string): OpenAPIV3.PathsObject {
+  /**
+   * Returns a subset of PathsObject from the current document, containing all objects who have at least one operation linked to the tag
+   *
+   * @param tag the tag name
+   * @return {OpenAPIV3.PathsObject} the subset
+   */
+  getPathsByTag(tag: string): OpenAPIV3.PathsObject {
     const paths: OpenAPIV3.PathsObject = {};
     for (let path in this.document.paths) {
       let pathAdded = false;

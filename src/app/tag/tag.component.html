@@ -8,7 +8,10 @@
     <div *ngFor="let path of paths | keyvalue">
         <div *ngFor="let operation of path.value | keyvalue">
             <div *ngIf="operation.value.tags.includes(tag.name)">
-                <div>{{operation.key}} {{path.key}} {{operation.value.summary}}</div>
+                <app-operation 
+                    [path]="path.key" 
+                    [operationName]="operation.key"
+                    [operation]="operation.value"></app-operation>
             </div>
         </div>
     </div>

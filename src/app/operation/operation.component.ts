@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { OpenAPIV3 } from 'openapi-types';
 
 @Component({
   selector: 'app-operation',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./operation.component.less']
 })
 export class OperationComponent implements OnInit {
+
+  @Input() path: string;
+  @Input() operationName: string;
+  @Input() operation: OpenAPIV3.OperationObject;
 
   constructor() { }
 

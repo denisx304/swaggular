@@ -2,5 +2,5 @@
     <app-tag 
       *ngFor="let tag of document.tags" 
       [tag]="tag"
-      [paths]="getPaths(tag.name)"></app-tag>
+      [paths]="getPathsByTag(tag.name)"></app-tag>
 </div>
