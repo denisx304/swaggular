@@ -4,7 +4,7 @@
     </mat-expansion-panel-header>
     <div *ngIf="schema.properties">
         <div *ngFor="let property of schema.properties | keyvalue">
-            <span>{{property.key}}</span>&nbsp;
+            <span>{{property.key}}</span><span *ngIf="schema.required && schema.required.includes(property.key)">*</span>&nbsp;
             <span *ngIf="property.value.type === 'object' || property.value.type === 'array'; else primitives">
                 <app-schema *ngIf="property.value.type === 'object'" [schema]="property.value" [expanded]="false"></app-schema>
                 <span *ngIf="property.value.type === 'array'">
@@ -25,4 +25,3 @@
         </div>
     </div>
 </mat-expansion-panel>
-<!-- TODO: add required flag -->

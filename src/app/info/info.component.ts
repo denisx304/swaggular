@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { OpenAPIV3 } from 'openapi-types';
 
 @Component({
   selector: 'app-info',
@@ -6,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info.component.less']
 })
 export class InfoComponent implements OnInit {
+
+  @Input() info: OpenAPIV3.InfoObject;
+
+  getContactHref(): string {
+    if (this.info.contact) {
+      if (this.info.contact.email) {
+        return `mailto:${this.info.contact.email}`;
+      }
+      return this.info.contact.url || null;
+    }
+    return null;
+  }
 
   constructor() { }
 

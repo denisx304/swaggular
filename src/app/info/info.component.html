@@ -1,1 +1,11 @@
-<p>info works!</p>
+<div>{{info.title}} {{info.version}}</div>
+<div *ngIf="info.description" [innerHTML]="info.description"></div> <!-- TODO: Handle link description -->
+<div *ngIf="info.termsOfService">
+    <a [href]="info.termsOfService" target="_blank">Terms of Service</a>
+</div>
+<div *ngIf="info.contact">
+    <a [href]="getContactHref()" target="_blank">{{info.contact.name || 'Contact'}}</a>
+</div>
+<div *ngIf="info.license">
+    <a [href]="info.license.url" target="_blank">{{info.license.name || 'License'}}</a>
+</div>
