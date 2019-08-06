@@ -4,3 +4,13 @@
       [tag]="tag"
       [paths]="getPathsByTag(tag.name)"></app-tag>
 </div>
+<div *ngIf="document.components && document.components.schemas">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>Schemas</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let schema of document.components.schemas | keyvalue">
+        <app-schema [schema]="schema.value" [expanded]="false"></app-schema>
+    </div>
+  </mat-expansion-panel>
+</div>
