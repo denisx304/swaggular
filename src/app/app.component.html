@@ -1,14 +1,14 @@
-<div *ngIf="document">
+<div *ngIf="document" class="container mt-5">
   <app-info [info]="document.info"></app-info>
 
-  <div *ngIf="document.tags">
+  <div *ngIf="document.tags" class="mt-5">
       <app-tag 
         *ngFor="let tag of document.tags" 
         [tag]="tag"
         [paths]="getPathsByTag(tag.name)"></app-tag>
   </div>
   
-  <div *ngIf="document.components && document.components.schemas">
+  <div *ngIf="document.components && document.components.schemas" class="mt-4">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
           <mat-panel-title>Schemas</mat-panel-title>
