@@ -1,27 +1,29 @@
-<div>Parameters</div>
-<div *ngIf="parameters && parameters.length; else noParameters">
+<div class="ribbon--white font-weight-bold">Parameters</div>
+<div *ngIf="parameters && parameters.length; else noParameters" class="table--reset my-4">
     <mat-table ngIfThen mat-table [dataSource]="parameters" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
             <td mat-cell *matCellDef="let element"> 
-                <div>{{element.name}} <span *ngIf="element.required">* required</span></div>
-                <div>
-                    {{element.schema.type}}
+                <div><h5 class="d-inline-block">{{element.name}}</h5>&nbsp;<span *ngIf="element.required" class="text-danger"><small>* required</small></span></div>
+                <div class="font-weight-bold">
+                    <span>{{element.schema.type}}</span>
                     <span *ngIf="element.schema.format">(${{element.schema.format}})</span>
                     <span *ngIf="element.schema.type === 'array'">[{{element.schema.items.type}}]</span>
                 </div>
-                <div>({{element.in}})</div>
+                <div class="mt-2 font-italic">({{element.in}})</div>
             </td>
         </ng-container>
         <ng-container matColumnDef="description">
             <th mat-header-cell *matHeaderCellDef> Description </th>
             <td mat-cell *matCellDef="let element"> 
                 <div>{{element.description || element.name}}</div>
-                <div *ngIf="element.schema.items && element.schema.items.enum">Available values: {{element.schema.items.enum.join(', ')}}</div>
+                <div *ngIf="element.schema.items && element.schema.items.enum"><span class="font-italic">Available values:</span> {{element.schema.items.enum.join(', ')}}</div>
             </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </mat-table>
 </div>
-<ng-template #noParameters>No parameters</ng-template>
+<ng-template #noParameters>
+    <div class="my-4">No parameters</div>
+</ng-template>

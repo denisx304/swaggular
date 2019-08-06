@@ -7,8 +7,8 @@
                 <span>{{operation.summary}}</span>
             </div>
         </mat-expansion-panel-header>
-        <div *ngIf="operation.deprecated">Warning: Deprecated</div>
-        <div *ngIf="operation.description">{{operation.description}}</div>
+        <div *ngIf="operation.deprecated" class="my-4">Warning: Deprecated</div>
+        <div *ngIf="operation.description" class="my-4">{{operation.description}}</div>
         <app-parameters [parameters]="operation.parameters"></app-parameters>
         <app-request-body *ngIf="operation.requestBody" [requestBody]="operation.requestBody"></app-request-body>
         <app-responses [responses]="operation.responses"></app-responses>
