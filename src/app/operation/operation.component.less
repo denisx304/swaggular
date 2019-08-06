@@ -1,0 +1,80 @@
+@get-color:         #61affe;
+@post-color:        #49cc90;
+@put-color:         #fca130;
+@delete-color:      #f93e3e;
+@deprecated-color:  #aaa;
+
+.colorify(@color) {
+    border: 1px solid @color;
+    background-color: fade(@color, 10%);
+}
+
+.operation {
+    .mat-expansion-panel {
+        box-shadow: 0 0 0 0;
+    }
+
+    &.operation--get {
+        .mat-expansion-panel {
+            .colorify(@get-color);
+        }
+
+        .operation__name {
+            background: @get-color;
+        }
+    }
+
+    &.operation--post {
+        .mat-expansion-panel {
+            .colorify(@post-color);
+        }
+
+        .operation__name {
+            background: @post-color;
+        }
+    }
+
+    &.operation--put {
+        .mat-expansion-panel {
+            .colorify(@put-color);
+        }
+
+        .operation__name {
+            background: @put-color;
+        }
+    }
+
+    &.operation--delete {
+        .mat-expansion-panel {
+            .colorify(@delete-color);
+        }
+
+        .operation__name {
+            background: @delete-color;
+        }
+    }
+
+    &.operation--deprecated {
+        opacity: .6;
+
+        .mat-expansion-panel {
+            .colorify(@deprecated-color);
+        }
+
+        .operation__name {
+            background: fade(@deprecated-color, 60%);
+        }
+    }
+}
+
+.operation__name {
+    min-width: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    font-weight: 500;
+}

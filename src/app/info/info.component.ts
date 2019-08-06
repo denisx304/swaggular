@@ -10,6 +10,11 @@ export class InfoComponent implements OnInit {
 
   @Input() info: OpenAPIV3.InfoObject;
 
+  constructor() { }
+
+  ngOnInit() {
+  }
+
   getContactHref(): string {
     if (this.info.contact) {
       if (this.info.contact.email) {
@@ -18,11 +23,6 @@ export class InfoComponent implements OnInit {
       return this.info.contact.url || null;
     }
     return null;
-  }
-
-  constructor() { }
-
-  ngOnInit() {
   }
 
 }

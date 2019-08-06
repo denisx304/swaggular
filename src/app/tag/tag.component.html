@@ -1,14 +1,15 @@
 <mat-expansion-panel>
     <mat-expansion-panel-header>
         <mat-panel-title>
-            <b>{{tag.name}}</b>
+            <h5><b>{{tag.name}}</b></h5>
         </mat-panel-title>
         <mat-panel-description>{{tag.description}}</mat-panel-description>
     </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
     <div *ngFor="let path of paths | keyvalue">
         <div *ngFor="let operation of path.value | keyvalue">
             <div *ngIf="operation.value.tags.includes(tag.name)">
-                <app-operation 
+                <app-operation
                     [path]="path.key" 
                     [operationName]="operation.key"
                     [operation]="operation.value"></app-operation>
@@ -16,4 +17,3 @@
         </div>
     </div>
 </mat-expansion-panel>
-<!-- TODO: add deprecated flag -->

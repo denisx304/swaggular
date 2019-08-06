@@ -1,4 +1,4 @@
-<div *ngIf="document" class="container mt-5">
+<div *ngIf="document" class="container my-5">
   <app-info [info]="document.info"></app-info>
 
   <div *ngIf="document.tags" class="mt-5">
@@ -11,7 +11,9 @@
   <div *ngIf="document.components && document.components.schemas" class="mt-4">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
-          <mat-panel-title>Schemas</mat-panel-title>
+          <mat-panel-title>
+              <b>Schemas</b>
+          </mat-panel-title>
       </mat-expansion-panel-header>
       <div *ngFor="let schema of document.components.schemas | keyvalue">
           <app-schema [schema]="schema.value" [expanded]="false"></app-schema>

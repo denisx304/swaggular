@@ -17,4 +17,7 @@ export class OperationComponent implements OnInit {
   ngOnInit() {
   }
 
+  getClasses(): string {
+    return `operation operation--${this.operationName} mt-2${this.operation.deprecated ? ' operation--deprecated' : ''}`;
+  }
 }

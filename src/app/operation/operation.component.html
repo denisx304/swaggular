@@ -1,9 +1,16 @@
-<mat-expansion-panel>
-    <mat-expansion-panel-header>
-        <div>{{operationName}} {{path}} {{operation.summary}}</div>
-    </mat-expansion-panel-header>
-    <div *ngIf="operation.description">{{operation.description}}</div>
-    <app-parameters [parameters]="operation.parameters"></app-parameters>
-    <app-request-body *ngIf="operation.requestBody" [requestBody]="operation.requestBody"></app-request-body>
-    <app-responses [responses]="operation.responses"></app-responses>
-</mat-expansion-panel>
+<div [class]="getClasses()">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <div>
+                <span class="operation__name">{{operationName}}</span>&nbsp;&nbsp;
+                <span class="font-weight-bold">{{path}}</span>&nbsp;&nbsp;
+                <span>{{operation.summary}}</span>
+            </div>
+        </mat-expansion-panel-header>
+        <div *ngIf="operation.deprecated">Warning: Deprecated</div>
+        <div *ngIf="operation.description">{{operation.description}}</div>
+        <app-parameters [parameters]="operation.parameters"></app-parameters>
+        <app-request-body *ngIf="operation.requestBody" [requestBody]="operation.requestBody"></app-request-body>
+        <app-responses [responses]="operation.responses"></app-responses>
+    </mat-expansion-panel>
+</div>

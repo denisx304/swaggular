@@ -11,6 +11,14 @@ import { OpenAPI, OpenAPIV3 } from 'openapi-types';
 export class AppComponent implements OnInit {
   document: OpenAPI.Document;
 
+  ngOnInit() {
+    SwaggerParser.dereference("../assets/openapi.yaml")
+      .then(swagger => {
+        this.document = swagger;
+        console.log(this.document);
+      })
+  }
+
   /**
    * Returns a subset of PathsObject from the current document, containing all objects who have at least one operation linked to the tag
    *
@@ -32,13 +40,5 @@ export class AppComponent implements OnInit {
     }
     
     return paths;
-  }
-
-  ngOnInit() {
-    SwaggerParser.dereference("../assets/openapi.yaml")
-      .then(swagger => {
-        this.document = swagger;
-        console.log(this.document);
-      })
   }
 }

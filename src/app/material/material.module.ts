@@ -3,6 +3,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -11,13 +12,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatExpansionModule,
     MatTableModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDividerModule
   ],
   exports: [
     MatExpansionModule,
     MatTableModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDividerModule
   ]
 })
 export class MaterialModule { }
