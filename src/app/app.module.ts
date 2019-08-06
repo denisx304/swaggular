@@ -14,6 +14,7 @@ import { RequestBodyComponent } from './request-body/request-body.component';
 import { SchemaComponent } from './schema/schema.component';
 import { ResponsesComponent } from './responses/responses.component';
 import { ContentComponent } from './content/content.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContentComponent } from './content/content.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
     // AppRoutingModule
   ],
   providers: [],

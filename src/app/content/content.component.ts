@@ -7,13 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  mediaTypeContent: string;
   @Input() content: {};
+  defaultMediaType: string;
 
   constructor() { }
 
   ngOnInit() {
-    // this.mediaTypeContent = Object.keys(this.content)[0];
+    this.defaultMediaType = Object.keys(this.content)[0];
   }
 
 }
