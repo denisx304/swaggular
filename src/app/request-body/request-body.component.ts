@@ -8,14 +8,14 @@ import { OpenAPIV3 } from 'openapi-types';
 })
 export class RequestBodyComponent implements OnInit {
 
-  content: string;
+  mediaType: string;
 
   @Input() requestBody: OpenAPIV3.RequestBodyObject;
 
   constructor() { }
 
   ngOnInit() {
-    this.content = Object.keys(this.requestBody.content)[0];
+    this.mediaType = Object.keys(this.requestBody.content)[0];
   }
 
 }

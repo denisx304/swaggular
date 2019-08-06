@@ -5,4 +5,5 @@
     <div *ngIf="operation.description">{{operation.description}}</div>
     <app-parameters [parameters]="operation.parameters"></app-parameters>
     <app-request-body *ngIf="operation.requestBody" [requestBody]="operation.requestBody"></app-request-body>
+    <app-responses [responses]="operation.responses"></app-responses>
 </mat-expansion-panel>

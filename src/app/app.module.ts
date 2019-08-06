@@ -12,6 +12,8 @@ import { OperationComponent } from './operation/operation.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { RequestBodyComponent } from './request-body/request-body.component';
 import { SchemaComponent } from './schema/schema.component';
+import { ResponsesComponent } from './responses/responses.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SchemaComponent } from './schema/schema.component';
     OperationComponent,
     ParametersComponent,
     RequestBodyComponent,
-    SchemaComponent
+    SchemaComponent,
+    ResponsesComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { OpenAPIV3 } from 'openapi-types';
-import { MatTable } from '@angular/material';
 
 @Component({
   selector: 'app-parameters',

@@ -1,12 +1,12 @@
 <div>
     Request body <span *ngIf="requestBody.required">required</span>
-    <mat-select [(value)]="content">
+    <mat-select [(value)]="mediaType">
         <mat-option *ngFor="let content of requestBody.content | keyvalue" [value]="content.key">{{content.key}}</mat-option>
     </mat-select>
 </div>
 <div *ngIf="requestBody.description">{{requestBody.description}}</div>
 <div *ngFor="let contentObject of requestBody.content | keyvalue">
-    <div *ngIf="contentObject.key === content">
+    <div *ngIf="contentObject.key === mediaType">
         <div *ngIf="contentObject.value.schema">
             <app-schema [schema]="contentObject.value.schema" [expanded]="true"></app-schema>
         </div>

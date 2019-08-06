@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
     SwaggerParser.dereference("../assets/openapi.yaml")
       .then(swagger => {
         this.document = swagger;
-        console.log(this.document);
       })
   }
 }
