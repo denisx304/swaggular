@@ -16,7 +16,7 @@
           </mat-panel-title>
       </mat-expansion-panel-header>
       <div *ngFor="let schema of document.components.schemas | keyvalue" class="my-3">
-          <app-schema [schema]="schema.value" [expanded]="false"></app-schema>
+          <app-schema [schema]="schema.value" [name]="schema.key" [expanded]="false"></app-schema>
       </div>
     </mat-expansion-panel>
   </div>

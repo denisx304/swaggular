@@ -10,6 +10,7 @@ export class SchemaComponent implements OnInit {
 
   @Input() schema: OpenAPIV3.SchemaObject;
   @Input() expanded: boolean;
+  @Input() name: string;
 
   constructor() { }
 
