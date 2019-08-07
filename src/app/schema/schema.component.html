@@ -2,8 +2,9 @@
     <mat-expansion-panel-header>
         <div *ngIf="schema.xml && schema.xml.name"><h5>{{schema.xml.name}}</h5></div>
     </mat-expansion-panel-header>
-    <div *ngIf="schema.type === 'object'">
+    <!--<div *ngIf="schema.type === 'object'">-->
         <div *ngIf="schema.properties">
+            {{ '{' }}
             <div *ngFor="let property of schema.properties | keyvalue" class="my-2 pl-3 row mx-0 pr-0 justify-content-between">
                 <div class="col-auto px-0">
                     <span class="font-weight-bold">{{property.key}}</span>&nbsp;
@@ -28,8 +29,9 @@
                     <div *ngIf="property.value.enum">[{{property.value.enum.join(', ')}}]</div>
                 </div>
             </div>
+            {{ '}' }}
         </div>
-    </div>
+    <!--</div>-->
     
     <div *ngIf="schema.type === 'array'">
         <span *ngIf="schema.items.type === 'object'">
@@ -40,7 +42,7 @@
         </span>
     </div>
 
-    <div *ngIf="schema.type !== 'object' && schema.type !== 'array'">
+    <div *ngIf="schema.type !== 'object' && schema.type !== 'array' && !schema.properties">
         {{schema.type}}
     </div>
 </mat-expansion-panel>
