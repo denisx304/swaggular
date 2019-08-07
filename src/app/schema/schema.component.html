@@ -4,49 +4,55 @@
             <h5>{{(schema.xml && schema.xml.name) ? schema.xml.name : name ? name : ''}}</h5>
         </div>
     </mat-expansion-panel-header>
-    <!--<div *ngIf="schema.type === 'object'">-->
-        <div *ngIf="schema.properties">
-            {{ '{' }}
-            <div *ngFor="let property of schema.properties | keyvalue" class="my-2 pl-3 row mx-0 pr-0 justify-content-between">
-                <div class="col-auto px-0">
-                    <span class="font-weight-bold">{{property.key}}</span>&nbsp;
-                    <span *ngIf="schema.required && schema.required.includes(property.key)" class="text-danger">*</span>
-                </div>
+    <div class="font-weight-bold">
+        <!--<div *ngIf="schema.type === 'object'">-->
+            <div *ngIf="schema.properties">
+                {{ '{' }}
+                <div *ngFor="let property of schema.properties | keyvalue" class="my-2 pl-3 row mx-0 pr-0 justify-content-between">
+                    <div class="col-auto px-0">
+                        <span>{{property.key}}</span>&nbsp;
+                        <span *ngIf="schema.required && schema.required.includes(property.key)" class="text-danger font-weight-normal">*</span>
+                    </div>
 
-                <div *ngIf="property.value.type === 'array'" class="font-weight-bold">
-                    <span *ngIf="property.value.items.type === 'object' || property.value.items.properties">
-                        [<app-schema [schema]="property.value.items" [expanded]="false"></app-schema>]
-                    </span>
-                    <div class="col-6 px-0">
-                        <span *ngIf="property.value.items.type !== 'object'">
-                            [{{property.value.items.type}}]
+                    <div *ngIf="property.value.type === 'array'">
+                        <span *ngIf="property.value.items.type === 'object' || property.value.items.properties">
+                            [<br/>
+                            <app-schema [schema]="property.value.items" [expanded]="false"></app-schema><br/>
+                            ]
                         </span>
+                        <div class="col-6 px-0">
+                            <span *ngIf="property.value.items.type !== 'object'">
+                                [{{property.value.items.type}}]
+                            </span>
+                        </div>
+                    </div>
+
+                    <app-schema *ngIf="property.value.type === 'object'" [schema]="property.value" [expanded]="false"></app-schema>
+
+                    <div *ngIf="property.value.type !== 'object' && property.value.type !== 'array'" class="col-6 px-0">
+                        <span *ngIf="property.value.type" class="property__type">{{property.value.type}}</span>
+                        <span *ngIf="property.value.format">$({{property.value.format}})</span>
+                        <div *ngIf="property.value.description">{{property.value.description}}</div>
+                        <div *ngIf="property.value.enum">[{{property.value.enum.join(', ')}}]</div>
                     </div>
                 </div>
-
-                <app-schema *ngIf="property.value.type === 'object'" [schema]="property.value" [expanded]="false"></app-schema>
-
-                <div *ngIf="property.value.type !== 'object' && property.value.type !== 'array'" class="col-6 px-0 font-weight-bold">
-                    <span *ngIf="property.value.type" class="property__type">{{property.value.type}}</span>
-                    <span *ngIf="property.value.format">$({{property.value.format}})</span>
-                    <div *ngIf="property.value.description">{{property.value.description}}</div>
-                    <div *ngIf="property.value.enum">[{{property.value.enum.join(', ')}}]</div>
-                </div>
+                {{ '}' }}
             </div>
-            {{ '}' }}
+        <!--</div>-->
+        
+        <div *ngIf="schema.type === 'array'">
+            <span *ngIf="schema.items.type === 'object' || schema.items.properties">
+                [<br/>
+                <app-schema [schema]="schema.items" [expanded]="false"></app-schema><br/>
+                ]
+            </span>
+            <span *ngIf="schema.items.type !== 'object'">
+                [{{schema.items.type}}]
+            </span>
         </div>
-    <!--</div>-->
-    
-    <div *ngIf="schema.type === 'array'">
-        <span *ngIf="schema.items.type === 'object'">
-            [<app-schema [schema]="schema.items" [expanded]="false"></app-schema>]
-        </span>
-        <span *ngIf="schema.items.type !== 'object'">
-            [{{schema.items.type}}]
-        </span>
-    </div>
 
-    <div *ngIf="schema.type !== 'object' && schema.type !== 'array' && !schema.properties">
-        {{schema.type}}
+        <div *ngIf="schema.type !== 'object' && schema.type !== 'array' && !schema.properties">
+            {{schema.type}}
+        </div>
     </div>
 </mat-expansion-panel>
